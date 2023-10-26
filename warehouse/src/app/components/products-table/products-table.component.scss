@@ -1,0 +1,78 @@
+table {
+  width: 100%;
+}
+
+.tableList {
+  table-layout:fixed;
+  margin-top: 50px;
+}
+
+.mat-header-row {
+  background-color: rgb(241, 7, 7);
+  border: 1px solid black;  
+}
+
+.row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tdList {
+  font-size: 15px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+
+}
+
+.tdInfo {
+    margin-left: 5px;
+    font-size: 20px;
+}
+.cartAmount {
+    width: 100px;
+    margin-left: 10px;
+}
+
+th {
+  color: white;
+  font-size: 20px;
+  border-right: 1px solid black; 
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.cartAdd {
+  color: white;
+  background-color: rgb(241, 7, 7);
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 5px;
+  border: 1px solid rgb(148, 2, 2);
+  transition: all 0.3s ease-in;
+  font-size: 15px;
+
+&:hover { 
+  cursor: pointer;
+  color: rgb(241, 7, 7);
+  background-color: #fff;
+}
+}
+
+@media screen  and (max-width: 1200px) {
+    .cartAdd { 
+    padding: 3px;
+    font-size: 12px;
+    }
+}
+
+@media screen  and (max-width: 1000px) {
+    th, .tdInfo {
+        font-size: 12px;
+    }
+    .cartAmount {
+        width: 70px;
+        margin-left: 5px;
+    }
+}
+  
+ 
+

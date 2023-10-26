@@ -1,2 +1,21 @@
 <!DOCTYPE html>
-<p>products works!</p>
+<div class="container">
+    <h2 class="header">Lista dostępnych produktów</h2>
+    <app-filter [categoryList]="categoryList"
+     [(filterCategory)]="filterCategory"
+     (filterCategoryChange)="applyFilter($event)"
+        ></app-filter>
+    <div class="center">
+        <div *ngIf="productList">
+        <app-products-table [filteredproductlist]="filteredProductList"></app-products-table>
+        </div>
+    </div>
+    <!-- <div *ngIf="!isAdmin"> -->
+        <div>
+        <h2 class="header">Twój koszyk</h2>
+        <!-- <app-cart [cart]="cart"></app-cart> -->
+    </div>
+    <!-- <a *ngIf="cart.length > 0" [routerLink]="/makeorder" class="makeOrder">
+        Złóż zamówienie
+    </a> -->
+</div>
