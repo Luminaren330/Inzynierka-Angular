@@ -22,6 +22,9 @@ import { MakeorderComponent } from './pages/makeorder/makeorder.component';
 import { StringInputComponent } from './components/string-input/string-input.component';
 import { FormatInputComponent } from './components/format-input/format-input.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { WorkersComponent } from './pages/workers/workers.component';
+import { AddWorkerComponent } from './pages/addworker/addworker.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { OrdersComponent } from './pages/orders/orders.component';
     MakeorderComponent,
     StringInputComponent,
     FormatInputComponent,
-    OrdersComponent
+    OrdersComponent,
+    WorkersComponent,
+    AddWorkerComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

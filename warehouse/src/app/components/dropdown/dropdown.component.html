@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<div class="string">
+<label for="label" class="formLabel">{{ label }}</label>
+<select id="label" [(ngModel)]="value" class="dropdown"
+(ngModelChange)="onChange()">
+  <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+</select>
+</div>

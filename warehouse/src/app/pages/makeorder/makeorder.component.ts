@@ -15,7 +15,8 @@ export class MakeorderComponent  {
   zipcode: string = '';
   wrong: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, 
+    private router: Router) {}
 
   getName(value: string) {
     this.name = value;

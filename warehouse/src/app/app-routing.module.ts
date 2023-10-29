@@ -4,6 +4,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { MakeorderComponent } from './pages/makeorder/makeorder.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { WorkersComponent } from './pages/workers/workers.component';
+import { AddWorkerComponent } from './pages/addworker/addworker.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,
+  },
+  {
+    path: 'workers',
+    component: WorkersComponent,
+  },
+  {
+    path: 'workers/addworker',
+    component: AddWorkerComponent,
   },
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full',
