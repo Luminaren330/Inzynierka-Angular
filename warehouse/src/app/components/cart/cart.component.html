@@ -1,1 +1,34 @@
 <!DOCTYPE html>
+<table mat-table [dataSource]="cart" matSort class="cartList">
+    <ng-container matColumnDef="CargoId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numer</th>
+      <td mat-cell *matCellDef="let item" class="tdList"><p class="tdInfo">{{ item.CargoId }}</p></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ObjectName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nazwa</th>
+      <td mat-cell *matCellDef="let item" class="tdList"><p class="tdInfo">{{ item.ObjectName }}</p></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ilość</th>
+      <td mat-cell *matCellDef="let item" class="tdList"><p class="tdInfo">{{ item.Amount }}</p></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
+      <td mat-cell *matCellDef="let item" class="tdList"><p class="tdInfo">{{ item.Price }} zł</p></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef></th >
+      <td mat-cell *matCellDef="let item" class="tdList">
+        <button mat-button (click)="deleteCart(item.CargoId)"
+        class="cartDelete">Usuń</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
+</table>
+  

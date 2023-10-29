@@ -18,6 +18,10 @@ import { FilterComponent } from './components/filter/filter.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MakeorderComponent } from './pages/makeorder/makeorder.component';
+import { StringInputComponent } from './components/string-input/string-input.component';
+import { FormatInputComponent } from './components/format-input/format-input.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { MatIconModule } from '@angular/material/icon';
     ProductsComponent,
     ProductsTableComponent,
     CartComponent,
-    FilterComponent
+    FilterComponent,
+    MakeorderComponent,
+    StringInputComponent,
+    FormatInputComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

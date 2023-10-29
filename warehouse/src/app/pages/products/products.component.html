@@ -13,9 +13,8 @@
     <!-- <div *ngIf="!isAdmin"> -->
         <div>
         <h2 class="header">Twój koszyk</h2>
-        <!-- <app-cart [cart]="cart"></app-cart> -->
+        <app-cart *ngIf="cart.length > 0" [cart]="cart"></app-cart>
     </div>
-    <!-- <a *ngIf="cart.length > 0" [routerLink]="/makeorder" class="makeOrder">
-        Złóż zamówienie
-    </a> -->
+    <a *ngIf="cart.length > 0" [routerLink]="'/makeorder'" class="makeOrder">Złóż zamówienie</a>
+    <!-- </div> -->
 </div>

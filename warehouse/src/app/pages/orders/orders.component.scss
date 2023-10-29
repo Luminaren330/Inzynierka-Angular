@@ -1,0 +1,81 @@
+.header {
+    margin-top: 30px;
+    color: rgb(241, 7, 7);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+}
+  
+.tableList {
+    table-layout:fixed;
+    margin-top: 50px;
+}
+
+.row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.mat-header-row {
+    background-color: rgb(241, 7, 7);
+    border: 1px solid black;  
+    color: white;
+}
+.mat-cell {
+    vertical-align: top;
+  }
+
+.mat-header-cell {
+    color: white;
+    font-size: 20px;
+    border-right: 1px solid black; 
+    text-align: center;
+}
+
+.tdListpro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orderp {
+    font-size: 20px;
+    text-align: center;
+}
+  
+  .orderpro {
+    font-size: 13px;
+}
+
+.orderEnd {
+    width: 130px;
+    background-color: rgb(241, 7, 7);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 7px;
+    transition: all 0.3s ease-in;
+  
+    &:hover {
+      cursor: pointer;
+      color: rgb(241, 7, 7);
+      background-color: #fff;
+      border: 1px solid rgb(241, 7, 7);
+    }
+  }
+  
+  @media screen  and (max-width: 1250px) { 
+   .orderEnd { 
+      font-size: 12px;
+      width: 100px;
+    }
+    .orderp, .mat-header-cell {
+      font-size: 15px;
+    }
+
+  }
+
+
+
+  

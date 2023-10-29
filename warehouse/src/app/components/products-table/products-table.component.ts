@@ -1,6 +1,7 @@
 import { Component, Input} from '@angular/core';
 import {Product} from '../../pages/products/products-interface.component'
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products-table',
@@ -16,8 +17,17 @@ export class ProductsTableComponent  {
   displayedColumns: string[] = 
   ['Category', 'Name', 'Material', 'UnitPrice', 
   'Amount', 'CartAmount', 'Actions'];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute,) {
 
+  }
+  resetComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['./'], {
+      relativeTo: this.route
+    })
   }
 
   addToCart(productId: number, cartAmount: number) {
@@ -27,6 +37,7 @@ export class ProductsTableComponent  {
         Amount: cartAmount
       }).subscribe(() => {
         alert('Dodano produkt do koszyka');
+        this.resetComponent();
       }, (error) => {
         console.error(error);
         // Handle the error or navigate to an error page
