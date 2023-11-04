@@ -9,43 +9,53 @@ import { AddWorkerComponent } from './pages/addworker/addworker.component';
 import { AddproductComponent } from './pages/addproduct/addproduct.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'products',
     component: ProductsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'makeorder',
     component: MakeorderComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'workers',
     component: WorkersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'workers/addworker',
     component: AddWorkerComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'products/addnewproduct',
     component: AddproductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'error',
     component: ErrorComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full',
