@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<navbar></navbar>
+<div>
+    <h2 class="header">Dodaj nowy produkt</h2>
+    <div class="form">
+      <app-string-input label="Nazwa: " (valueChange) = 'getName($event)' ></app-string-input>
+      <app-dropdown [options]="magazineOptions" (valueChange) = 'getMagazine($event)'
+      label="Magazyn: " value="magazine"></app-dropdown>
+      <app-string-input label="Materiał: " (valueChange) = 'getMaterial($event)' ></app-string-input>
+      <app-float-input label="Cena jednostkowa: " (valueChange) = 'getUnitPrice($event)' ></app-float-input>
+      <app-int-input label="Ilość: " (valueChange) = 'getAmount($event)' ></app-int-input>
+      <app-dropdown [options]="categoryOptions" (valueChange) = 'getCategory($event)'
+      label="Kategoria: " value="category"></app-dropdown>     
+    </div>
+    <div class="center">
+      <button class="addProduct" (click)="addNewProduct()">Dodaj</button>
+    </div>
+  </div>

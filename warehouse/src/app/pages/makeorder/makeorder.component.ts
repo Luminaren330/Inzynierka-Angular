@@ -18,18 +18,18 @@ export class MakeorderComponent  {
   constructor(private http: HttpClient, 
     private router: Router) {}
 
-  getName(value: string) {
+  getName(value: string): void {
     this.name = value;
   }
 
-  getPhone(value: string) {
+  getPhone(value: string): void {
     this.phoneNumber = parseInt(value);
   }
 
-  getAddress(value: string) {
+  getAddress(value: string): void {
     this.address = value;
   }
-  getZipCode(value: string) {
+  getZipCode(value: string): void {
     this.zipcode = value;
   }
 

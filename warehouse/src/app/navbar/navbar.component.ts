@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { links } from './navbar-data'
+import { Login } from '../global-login.component'
 
 @Component( { 
     selector: 'navbar',
@@ -13,27 +14,40 @@ export class NavbarComponent implements OnInit {
     linksHeight: number = 0;
     links = links;
     logedIn: boolean = false;
+    login: { isLogedin: boolean; isAdmin: boolean } = Login;
 
     @ViewChild('linksRef', { read: ElementRef }) linksRef!: ElementRef;
-    constructor(
-        private router: Router,
-    ) {
-        
-    }
+    constructor(private router: Router) {}
 
     ngOnInit(): void {
-        
+        if(Login.isAdmin || Login.isLogedin) {
+          this.logedInText = "Wyloguj";
+        }
+        else {
+          this.logedInText = "Zaloguj";
+        }
     }
 
-    ngAfterViewInit() {
+    ngAfterViewInit(): void {
     this.linksHeight = this.linksRef.nativeElement.getBoundingClientRect().height;
   }
 
     toggleLogin(): void {
-        this.logedIn =! this.logedIn;
-        this.logedIn ? this.logedInText = 'Wyloguj' : this.logedInText = 'Zaloguj';
+      if(!Login.isLogedin) { 
+        this.router.navigate(['./login']);
+      }
+      else {
+        Login.isAdmin = false;
+        Login.isLogedin = false;
+        alert("Pomyślnie wylogowano");
+        this.router.navigate(['./dashboard']).then(()=> {
+          window.location.reload();
+        })
+        
+      }
     }
     toggleLinks(): void {
     this.showLinks = !this.showLinks;
+    this.linksHeight = this.linksRef.nativeElement.getBoundingClientRect().height;
   }
 }

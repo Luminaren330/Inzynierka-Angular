@@ -19,24 +19,24 @@ export class AddWorkerComponent {
   constructor(private http: HttpClient,
     private router: Router) {}
 
-    getName(value: string) {
+    getName(value: string): void {
       this.name = value;
     }
   
-    getPhone(value: string) {
+    getPhone(value: string): void {
       this.phoneNumber = parseInt(value);
     }
 
-    getSurname(value: string) {
+    getSurname(value: string): void {
       this.surname = value;
     }
 
-    getPosition(value: string) {
+    getPosition(value: string): void {
       this.position = value;
     }
   
   
-  addWorker() {
+  addWorker(): void {
     if (isNaN(this.phoneNumber) || this.phoneNumber.toString().length !== 9) {
       this.wrong = true;
     } else {

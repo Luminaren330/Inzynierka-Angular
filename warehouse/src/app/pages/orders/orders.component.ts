@@ -23,13 +23,13 @@ export class OrdersComponent implements OnInit {
 
   constructor(private http: HttpClient, 
     private router: Router,
-    private route: ActivatedRoute,) {}
+    private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void{
     this.getOrders();
   }
 
-  resetComponent() {
+  resetComponent(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['./'], {

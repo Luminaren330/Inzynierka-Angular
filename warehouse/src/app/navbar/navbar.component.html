@@ -13,7 +13,7 @@
         <div class="links_container" [style.height.px]="showLinks ? linksHeight : 0">
             <ul class="links" #linksRef>
                 <ng-container *ngFor="let link of links">
-                    <li>
+                    <li *ngIf="link.id < 2 || (link.id < 3 && login.isLogedin) || login.isAdmin ">
                         <a [routerLink]="link.link">{{ link.text }}</a>
                     </li>
                 </ng-container>

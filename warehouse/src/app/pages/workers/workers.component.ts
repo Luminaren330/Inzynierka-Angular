@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workers',
@@ -11,19 +12,22 @@ export class WorkersComponent implements OnInit {
   workers: any[] = [];
   index: number = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getWorkers();
   }
 
-  getWorkers() {
+  getWorkers(): void {
     this.http.get('http://localhost:3001/workers').subscribe((response: any) => {
       this.workers = response;
+    }, ()=> {
+      this.router.navigate(['/error']);
     });
   }
 
-  selectWorker(index: number) {
+  selectWorker(index: number): void {
     this.index = index;
   }
 

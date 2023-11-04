@@ -15,6 +15,11 @@
         <td mat-cell *matCellDef="let element" class="tdList"><p class="tdInfo">{{ element.Material }}</p></td>
     </ng-container>
 
+    <ng-container *ngIf="login.isLogedin && !login.isAdmin" matColumnDef="MagazinePlacement">
+        <th mat-header-cell *matHeaderCellDef> Magazyn </th>
+        <td mat-cell *matCellDef="let element" class="tdList"><p class="tdInfo">{{ element.MagazinePlacement }}</p></td>
+    </ng-container>
+
     <ng-container matColumnDef="UnitPrice">
         <th mat-header-cell *matHeaderCellDef> Cena jednostkowa </th>
         <td mat-cell *matCellDef="let element" class="tdList"><p class="tdInfo">{{ element.UnitPrice }} zł</p></td>
@@ -25,8 +30,8 @@
         <td mat-cell *matCellDef="let element" class="tdList"><p class="tdInfo">{{ element.Amount }} </p></td>
     </ng-container>
 
-    <ng-container matColumnDef="CartAmount">
-        <th mat-header-cell *matHeaderCellDef> Ilość do koszyka </th>
+    <ng-container *ngIf = "!login.isLogedin" matColumnDef="CartAmount">
+        <th   mat-header-cell *matHeaderCellDef> Ilość do koszyka </th>
         <td mat-cell *matCellDef="let element" class="tdList">
             <input type="number" min="1" 
             [value]="element.CartAmount" class="cartAmount"
@@ -35,12 +40,29 @@
         </td>
     </ng-container>
 
-    <ng-container matColumnDef="Actions">
-        <th mat-header-cell *matHeaderCellDef>  </th>
+    <ng-container *ngIf = "login.isAdmin" matColumnDef="CartAmount">
+        <th   mat-header-cell *matHeaderCellDef> Dodaj ilość produktu </th>
+        <td mat-cell *matCellDef="let element" class="tdList">
+            <input type="number" min="1" 
+            [value]="element.CartAmount" class="cartAmount"
+            placeholder="Ilość"
+            [(ngModel)]="element.CartAmount" />
+        </td>
+    </ng-container>
+
+    <ng-container *ngIf = "!login.isLogedin" matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" class="tdList">
             <button class="cartAdd"
             (click)="addToCart(element.ObjectSID, element.CartAmount)">Dodaj do koszyka</button>
-            <!-- <button mat-button (click)="addProduct(element.Id, element.CartAmount)">Dodaj ilość produktów</button> -->
+        </td>
+    </ng-container>
+    <ng-container *ngIf = "login.isAdmin" matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" class="tdList">
+           
+            <button class="cartAdd"
+             (click)="addProduct(element.ObjectSID, element.CartAmount)"> Dodaj ilość produktów</button>
         </td>
     </ng-container>
 

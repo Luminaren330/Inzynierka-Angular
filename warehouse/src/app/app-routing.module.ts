@@ -6,11 +6,18 @@ import { MakeorderComponent } from './pages/makeorder/makeorder.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { WorkersComponent } from './pages/workers/workers.component';
 import { AddWorkerComponent } from './pages/addworker/addworker.component';
+import { AddproductComponent } from './pages/addproduct/addproduct.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'products',
@@ -31,6 +38,14 @@ const routes: Routes = [
   {
     path: 'workers/addworker',
     component: AddWorkerComponent,
+  },
+  {
+    path: 'products/addnewproduct',
+    component: AddproductComponent,
+  },
+  {
+    path: 'error',
+    component: ErrorComponent,
   },
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full',

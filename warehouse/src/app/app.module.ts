@@ -25,6 +25,11 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { WorkersComponent } from './pages/workers/workers.component';
 import { AddWorkerComponent } from './pages/addworker/addworker.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { AddproductComponent } from './pages/addproduct/addproduct.component';
+import { FloatInputComponent } from './components/float-input/float-input.component';
+import { IntInputComponent } from './components/int-input/int-input.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     OrdersComponent,
     WorkersComponent,
     AddWorkerComponent,
-    DropdownComponent
+    DropdownComponent,
+    AddproductComponent,
+    FloatInputComponent,
+    IntInputComponent,
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

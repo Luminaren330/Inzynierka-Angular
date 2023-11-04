@@ -1,7 +1,7 @@
 export interface Product {
   Objectsid: number;
   Name: string;
-  Magazineplacement: string;
+  MagazinePlacement: string;
   Material: string;
   Unitprice: number;
   Amount: number;

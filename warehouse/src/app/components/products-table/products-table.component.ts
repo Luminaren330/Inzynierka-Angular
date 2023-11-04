@@ -1,7 +1,8 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../pages/products/products-interface.component'
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Login } from '../../global-login.component'
 
 @Component({
   selector: 'app-products-table',
@@ -9,9 +10,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: [ './products-table.component.scss'
   ]
 })
-export class ProductsTableComponent  {
+export class ProductsTableComponent implements OnInit  {
 
   @Input() filteredproductlist: Product[] = []; 
+
+  login: { isLogedin: boolean; isAdmin: boolean } = Login;
   
   
   displayedColumns: string[] = 
@@ -21,6 +24,12 @@ export class ProductsTableComponent  {
     private router: Router,
     private route: ActivatedRoute,) {
 
+  }
+  ngOnInit(): void {
+      if(Login.isLogedin && !Login.isAdmin) {
+        this.displayedColumns = ['Category', 'Name', 'Material', 
+        'MagazinePlacement', 'UnitPrice', 'Amount'];
+      }
   }
   resetComponent() {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -38,9 +47,8 @@ export class ProductsTableComponent  {
       }).subscribe(() => {
         alert('Dodano produkt do koszyka');
         this.resetComponent();
-      }, (error) => {
-        console.error(error);
-        // Handle the error or navigate to an error page
+      }, () => {
+        this.router.navigate(['/error']);
       });
     } else {
       alert('Nie można dodać 0 przedmiotów do koszyka');
@@ -48,16 +56,17 @@ export class ProductsTableComponent  {
   }
 
   addProduct(productId: number, cartAmount: number) {
+    console.log(productId);
+    console.log(cartAmount);
     if (cartAmount > 0) {
-      // Use Angular HttpClient to make a PUT request
       this.http.put('http://localhost:3001/products/addproduct', {
         ObjectSID: productId,
         Amount: cartAmount
       }).subscribe(() => {
         alert('Dodano ilość produktów');
-      }, (error) => {
-        console.error(error);
-        // Handle the error or navigate to an error page
+        this.resetComponent();
+      }, () => {
+        this.router.navigate(['/error']);
       });
     } else {
       alert('Nie można dodać 0 do przedmiotów');

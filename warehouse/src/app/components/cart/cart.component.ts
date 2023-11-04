@@ -31,18 +31,15 @@ export class CartComponent  {
  
 
   deleteCart(id: number) {
-    // Send a delete request to the API endpoint
     this.http
       .delete(`http://localhost:3001/products/deletecart/${id}`)
       .subscribe(
         (res: any) => {
           alert(res.text);
           this.resetComponent();
-          // After a successful deletion, you may want to refresh the cart data
-          // You can call a method to update the cart data here.
         },
-        (error) => {
-          console.error('Error deleting from cart', error);
+        () => {
+          this.router.navigate(['/error']);
         }
       );
   }
