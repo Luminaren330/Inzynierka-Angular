@@ -14,15 +14,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree {
-    if (Login.isLogedin) {
+    if (Login.isAdmin) {
+      return true;
+    } else if (Login.isLogedin) {    
       const allowedRoutes = ['dashboard', 'products', 'orders', 'error', 'login'];
       if (allowedRoutes.includes(next.routeConfig?.path || '')) {
         return true;
       } else {
         return this.router.parseUrl('/dashboard'); 
       }
-    } else if (Login.isAdmin) {    
-      return true;
     } else {
       const allowedRoutes = ['dashboard', 'products', 'makeorder', 'error', 'login'];
       if (allowedRoutes.includes(next.routeConfig?.path || '')) {
