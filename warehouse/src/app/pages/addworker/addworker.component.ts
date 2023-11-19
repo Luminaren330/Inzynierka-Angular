@@ -13,6 +13,7 @@ export class AddWorkerComponent {
   phoneNumber: number = 0;
   position: string = 'Sprzedawca';
   wrong: boolean = false;
+  empty: boolean = false;
 
   options: string[] = ['Sprzedawca', 'Magazynier', 'Menadżer'];
 
@@ -37,9 +38,16 @@ export class AddWorkerComponent {
   
   
   addWorker(): void {
-    if (isNaN(this.phoneNumber) || this.phoneNumber.toString().length !== 9) {
+    this.empty = false;
+    this.wrong = false;
+    if (isNaN(this.phoneNumber) 
+    || this.phoneNumber.toString().length !== 9) {
       this.wrong = true;
-    } else {
+    } else if (this.name.length < 3 ||
+      this.surname.length < 3) {
+        this.empty = true;
+      }
+    else {
       this.http.post('http://localhost:3001/workers/addworker', {
       name: this.name,
       surname: this.surname,

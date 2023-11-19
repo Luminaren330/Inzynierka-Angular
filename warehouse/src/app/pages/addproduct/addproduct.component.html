@@ -10,7 +10,13 @@
       <app-float-input label="Cena jednostkowa: " (valueChange) = 'getUnitPrice($event)' ></app-float-input>
       <app-int-input label="Ilość: " (valueChange) = 'getAmount($event)' ></app-int-input>
       <app-dropdown [options]="categoryOptions" (valueChange) = 'getCategory($event)'
-      label="Kategoria: " value="category"></app-dropdown>     
+      label="Kategoria: " value="category"></app-dropdown> 
+      <div class="wrong" *ngIf="wrong">
+        <h4>Nazwa lub materiał jest niepoprawny</h4>
+      </div>
+      <div class="wrong" *ngIf="badPrice">
+        <h4>Ilość lub cena jest mniejsza od 0</h4>
+      </div>
     </div>
     <div class="center">
       <button class="addProduct" (click)="addNewProduct()">Dodaj</button>

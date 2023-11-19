@@ -20,6 +20,8 @@ export class ProductsTableComponent implements OnInit  {
   displayedColumns: string[] = 
   ['Category', 'Name', 'Material', 'UnitPrice', 
   'Amount', 'CartAmount', 'Actions'];
+
+  
   constructor(private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,) {

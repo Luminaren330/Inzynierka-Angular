@@ -57,6 +57,10 @@ th {
 }
 }
 
+.hidden-row {
+  display: none;
+}
+
 @media screen  and (max-width: 1200px) {
     .cartAdd { 
     padding: 3px;

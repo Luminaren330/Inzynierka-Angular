@@ -10,6 +10,9 @@
       <div class="wrong" *ngIf="wrong">
         <h4>Niepoprawne dane logowania</h4>
       </div>
+      <div class="wrong" *ngIf="empty">
+        <h4>Długosć imienia lub adresu jest za krótka</h4>
+      </div>
     </div>
     <div class="center">
       <button class="makeOrder" (click)="createOrder()">Złóż zamówienie</button>

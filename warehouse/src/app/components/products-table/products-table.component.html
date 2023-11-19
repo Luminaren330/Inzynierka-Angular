@@ -34,6 +34,7 @@
         <th   mat-header-cell *matHeaderCellDef> Ilość do koszyka </th>
         <td mat-cell *matCellDef="let element" class="tdList">
             <input type="number" min="1" 
+            max="{{ element.Amount }}"
             [value]="element.CartAmount" class="cartAmount"
             placeholder="Ilość"
             [(ngModel)]="element.CartAmount" />
@@ -67,5 +68,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" class="row"
+        [ngClass]="{'hidden-row': row.Amount <= 0}">
+    </tr>
 </table>

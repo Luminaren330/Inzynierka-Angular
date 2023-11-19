@@ -14,6 +14,7 @@ export class MakeorderComponent  {
   address: string = '';
   zipcode: string = '';
   wrong: boolean = false;
+  empty: boolean = false;
 
   constructor(private http: HttpClient, 
     private router: Router) {}
@@ -34,6 +35,8 @@ export class MakeorderComponent  {
   }
 
   createOrder(): void {
+    this.wrong = false;
+    this.empty = false;
     if (
       isNaN(this.phoneNumber) ||
       this.phoneNumber.toString().length !== 9 ||
@@ -41,7 +44,13 @@ export class MakeorderComponent  {
       !this.zipcode.includes('-')
     ) {
       this.wrong = true;
-    } else {
+    } else if (
+      this.name.length < 3 ||
+      this.address.length < 10
+    ) {
+      this.empty = true;
+    }
+    else {
       this.http
         .post('http://localhost:3001/makeorder/createorder', {
           phoneNumber: this.phoneNumber,

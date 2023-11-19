@@ -15,6 +15,8 @@ export class AddproductComponent  {
   unitPrice: number = 0;
   amount: number = 0;
   category: string = 'Filtr';
+  wrong: boolean = false;
+  badPrice: boolean = false;
 
   magazineOptions: string[] = [
     'A','B','C'
@@ -50,6 +52,17 @@ export class AddproductComponent  {
     }
 
     addNewProduct(): void {
+      this.badPrice = false;
+      this.wrong=false;
+      if(this.name.length < 3 ||
+        this.material.length < 3) {
+          this.wrong = true;
+        }
+        else if(this.amount <=0 ||
+          this.unitPrice <=0) {
+            this.badPrice = true;
+          }
+          else {
       this.http.post("http://localhost:3001/products/addnewproduct", {
         name: this.name,
         magazine: this.magazine,
@@ -65,6 +78,6 @@ export class AddproductComponent  {
         this.router.navigate(['/error']);
       });
     }
-
+  }
 
 }
