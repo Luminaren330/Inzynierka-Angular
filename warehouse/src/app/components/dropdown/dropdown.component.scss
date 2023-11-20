@@ -1,0 +1,27 @@
+.string {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+    color: rgb(241, 7, 7);
+    font-size: 20px;
+    margin: 10px 0px 0px 40px;
+}
+.dropdown {
+    width: 95%;
+    height: 27px;
+    margin: 0px 40px 30px 40px;
+    align-items: center;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1500px) {
+
+    .dropdown {
+       width: 90%;
+   }
+
+   
+}

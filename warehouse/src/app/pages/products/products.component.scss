@@ -1,0 +1,25 @@
+.header {
+  margin-top: 30px;
+  color: rgb(241, 7, 7);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.makeOrder { 
+  background-color: rgb(241, 7, 7);
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 40px;
+  color: white;
+  position: relative;
+  left: 70%;
+  transition: all 0.3s ease-in;
+  
+}
+
+.makeOrder:hover {
+  color: rgb(241, 7, 7);
+  border: 1px solid rgb(241, 7, 7);
+  cursor: pointer;
+  background-color: white;
+} 

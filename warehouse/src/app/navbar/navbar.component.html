@@ -1,0 +1,28 @@
+<nav class="navbar">
+    <div class="nav_center">
+        <div class="nav_header">
+            <div class="links">
+                <a routerLink="/">
+                    <mat-icon>home</mat-icon>
+                </a>
+            </div>
+            <button class="nav_toggle" (click)="toggleLinks()">
+                <mat-icon>view_headline</mat-icon>
+            </button>
+        </div>
+        <div class="links_container" [style.height.px]="showLinks ? linksHeight : 0">
+            <ul class="links" #linksRef>
+                <ng-container *ngFor="let link of links">
+                    <li *ngIf="link.id < 2 || (link.id < 3 && login.isLogedin) || login.isAdmin ">
+                        <a [routerLink]="link.link">{{ link.text }}</a>
+                    </li>
+                </ng-container>
+                <li class="links">
+                    <button type="button" class="logout_button" (click)="toggleLogin()">
+                        {{ logedInText }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

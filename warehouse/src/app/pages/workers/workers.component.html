@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<navbar></navbar>
+<section class="section">
+    <div class="title">
+      <h2 class="header">Pracownicy</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="workers">
+      <div class="names">
+        <button *ngFor="let worker of workers; let i = index"
+                (click)="selectWorker(i)"
+                [class.nameBtn]="true"
+                [class.activeBtn]="i === index">
+          {{ worker.Name }}
+        </button>
+      </div>
+      <article class="worker">
+        <h3>
+          {{ workers[index]?.Name }} {{ workers[index]?.Surname }}
+        </h3>
+        <h4>{{ workers[index]?.Position }}</h4>
+        <div class="phone">
+          <p>Nr telefonu: </p>
+          <p>{{ workers[index]?.PhoneNumber }}</p>
+        </div>
+      </article>
+    </div>
+    <div class="add">
+      <a routerLink="/workers/addworker" class="addWorker">Dodaj pracownika</a>
+    </div>
+  </section>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<navbar></navbar>
+<div class="container">
+    <h2 class="header">Zamówienia</h2>
+<table mat-table [dataSource]="orders" class="tableList">
+
+    <ng-container matColumnDef="orderId">
+      <mat-header-cell *matHeaderCellDef>Nr zamówienia</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.orderId }}</p></mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="client">
+      <mat-header-cell *matHeaderCellDef>Nazwa klienta</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.client }}</p></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef>Adres klienta</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.address }}</p></mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="zipcode">
+      <mat-header-cell *matHeaderCellDef>Kod pocztowy klienta</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.zipcode }}</p></mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="phoneNumber">
+      <mat-header-cell *matHeaderCellDef>Telefon</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.phoneNumber }}</p></mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="items">
+      <mat-header-cell *matHeaderCellDef>Ilość i Przedmioty</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdListpro">
+        <p *ngFor="let item of order.items.split(', ')" 
+        class="orderpro">{{ item }}</p>
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="worker">
+      <mat-header-cell *matHeaderCellDef>Pracownik przypisany</mat-header-cell>
+      <mat-cell *matCellDef="let order" class="tdList">
+        <p class="orderp">{{ order.worker1 }} {{ order.worker2 }}</p></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let order">
+        <button (click)="orderEnded(order.orderId)" class="orderEnd">Zrealizowane</button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></mat-row>
+  </table>
+</div>

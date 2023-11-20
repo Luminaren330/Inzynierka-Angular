@@ -1,0 +1,67 @@
+
+.cartList {
+    table-layout:fixed;
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.mat-header-row {
+    background-color: rgb(241, 7, 7);
+    border: 1px solid black;  
+}
+
+th {
+    color: white;
+    font-size: 20px;
+    border-right: 1px solid black; 
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.tdList {
+    font-size: 15px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+  
+}
+
+.tdInfo {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.cartDelete {
+    width: 100px;
+    background-color: rgb(241, 7, 7);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 7px;
+    transition: all 0.3s ease-in;
+    margin-left: 5px;
+
+    &:hover {
+        color: rgb(241, 7, 7);
+        border: 1px solid rgb(241, 7, 7);
+        cursor: pointer;
+        background-color: white;
+    }
+}
+
+
+@media screen  and (max-width: 1100px) {
+    .cartDelete {
+      width: 50px;
+      font-size: 15px;
+    }
+  
+    .tdInfo, th {
+      font-size: 12px;
+    }
+    
+    .cartList {
+        width: 40%;
+    }
+}
+  

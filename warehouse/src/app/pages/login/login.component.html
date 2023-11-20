@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div class="container">
+    <div class="login">
+      <h3 class="title">Zaloguj się</h3>
+      <div class="labels">
+        <label htmlFor="Nazwa użytkownika">Nazwa użytkownika:</label>
+        <input type="text" class="input" [(ngModel)]="username">
+      </div>
+      <div class="labels">
+        <label htmlFor="Hasło">Hasło:</label>
+        <input type="text" class="input" [(ngModel)]="password">
+      </div>
+      <button class="button" (click)="handleLogin()">Zaloguj się</button>
+    </div>
+  </div>

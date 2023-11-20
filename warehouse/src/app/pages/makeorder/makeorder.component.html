@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<navbar></navbar>
+<div>
+    <h2 class="header">Złóż zamówienie</h2>
+    <div class="form">
+      <app-string-input label="Imię:" (valueChange) = 'getName($event)' ></app-string-input>
+      <app-format-input label="Nr telefonu:" (valueChange) = 'getPhone($event)'  format="Format: 123456124" pattern="[0-9]{9}"></app-format-input>
+      <app-string-input label="Adres zamieszkania:" (valueChange) = 'getAddress($event)' ></app-string-input>
+      <app-format-input label="Kod pocztowy:" (valueChange) = 'getZipCode($event)'  format="Format: 12-345" pattern="[0-9]{2}-[0-9]{3}"></app-format-input>
+      <div class="wrong" *ngIf="wrong">
+        <h4>Niepoprawne dane logowania</h4>
+      </div>
+      <div class="wrong" *ngIf="empty">
+        <h4>Długosć imienia lub adresu jest za krótka</h4>
+      </div>
+    </div>
+    <div class="center">
+      <button class="makeOrder" (click)="createOrder()">Złóż zamówienie</button>
+    </div>
+  </div>
