@@ -39,7 +39,7 @@ export class OrdersComponent implements OnInit {
 
   getOrders(): void {
     this.http
-      .get<Order[]>('http://localhost:3001/orders')
+      .get<Order[]>('https://mysql-warehouse.onrender.com/orders')
       .subscribe(
         (response) => {
           this.orders = response;
@@ -52,7 +52,7 @@ export class OrdersComponent implements OnInit {
 
   orderEnded(orderId: number): void {
     this.http
-      .delete(`http://localhost:3001/orders/${orderId}`)
+      .delete(`https://mysql-warehouse.onrender.com/orders/${orderId}`)
       .subscribe(
         () => {
           alert('Zamówienie ' + orderId + ' zostało zrealizowane');
