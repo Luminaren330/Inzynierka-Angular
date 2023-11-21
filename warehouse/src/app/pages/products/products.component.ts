@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.http.get<Product[]>('http://localhost:3001/products').subscribe(
+    this.http.get<Product[]>('https://mysql-warehouse.onrender.com/products').subscribe(
       (response) => {
         this.productList = response;
         this.filteredProductList = response;
@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getCart(): void {
-    this.http.get<any[]>('http://localhost:3001/products/cart').subscribe(
+    this.http.get<any[]>('https://mysql-warehouse.onrender.com/products/cart').subscribe(
       (response) => {
         this.cart = response;
       },

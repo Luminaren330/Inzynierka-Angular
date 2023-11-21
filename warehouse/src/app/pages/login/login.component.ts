@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
 
     getCredentials(): void {
-      this.http.get<Credentials[]>('http://localhost:3001/login').subscribe(
+      this.http.get<Credentials[]>('https://mysql-warehouse.onrender.com/login').subscribe(
         (response)=> {
           this.credentials = response;
         }),

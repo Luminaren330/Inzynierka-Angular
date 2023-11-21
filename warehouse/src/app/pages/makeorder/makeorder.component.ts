@@ -52,7 +52,7 @@ export class MakeorderComponent  {
     }
     else {
       this.http
-        .post('http://localhost:3001/makeorder/createorder', {
+        .post('https://mysql-warehouse.onrender.com/makeorder/createorder', {
           phoneNumber: this.phoneNumber,
           address: this.address,
           zipcode: this.zipcode,
