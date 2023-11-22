@@ -77,5 +77,18 @@ table {
   }
 
 
+  @media screen and (max-width: 700px)  {
+
+ .orderEnd { 
+  width: 60px;
+  font-size: 10px;
+ }
+
+ .orderp, .mat-header-cell {
+        font-size: 10px;
+    }
+}
+
+
 
   

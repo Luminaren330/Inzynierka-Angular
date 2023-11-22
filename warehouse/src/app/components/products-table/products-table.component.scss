@@ -77,6 +77,18 @@ th {
         margin-left: 5px;
     }
 }
+
+@media screen and (max-width: 700px)  {
+
+ .cartAdd, .cartAmount {
+  width: 60px;
+  font-size: 10px;
+ }
+
+ .th, .tdInfo {
+        font-size: 10px;
+    }
+}
   
  
 
