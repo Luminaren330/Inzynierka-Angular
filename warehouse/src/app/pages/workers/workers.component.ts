@@ -20,7 +20,7 @@ export class WorkersComponent implements OnInit {
   }
 
   getWorkers(): void {
-    this.http.get('https://mysql-warehouse.onrender.com/workers').subscribe((response: any) => {
+    this.http.get('http://localhost:3001/workers').subscribe((response: any) => {
       this.workers = response;
     }, ()=> {
       this.router.navigate(['/error']);

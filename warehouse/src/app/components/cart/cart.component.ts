@@ -32,7 +32,7 @@ export class CartComponent  {
 
   deleteCart(id: number) {
     this.http
-      .delete(`https://mysql-warehouse.onrender.com/products/deletecart/${id}`)
+      .delete(`http://localhost:3001/products/deletecart/${id}`)
       .subscribe(
         (res: any) => {
           alert(res.text);

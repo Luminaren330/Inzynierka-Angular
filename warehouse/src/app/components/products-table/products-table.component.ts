@@ -43,7 +43,7 @@ export class ProductsTableComponent implements OnInit  {
 
   addToCart(productId: number, cartAmount: number) {
     if (cartAmount > 0) {
-      this.http.post('https://mysql-warehouse.onrender.com/products/cartadd', {
+      this.http.post('http://localhost:3001/products/cartadd', {
         ObjectSID: productId,
         Amount: cartAmount
       }).subscribe(() => {
@@ -61,7 +61,7 @@ export class ProductsTableComponent implements OnInit  {
     console.log(productId);
     console.log(cartAmount);
     if (cartAmount > 0) {
-      this.http.put('https://mysql-warehouse.onrender.com/products/addproduct', {
+      this.http.put('http://localhost:3001/products/addproduct', {
         ObjectSID: productId,
         Amount: cartAmount
       }).subscribe(() => {

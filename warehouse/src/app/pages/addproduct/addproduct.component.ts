@@ -63,7 +63,7 @@ export class AddproductComponent  {
             this.badPrice = true;
           }
           else {
-      this.http.post("https://mysql-warehouse.onrender.com/products/addnewproduct", {
+      this.http.post("http://localhost:3001/products/addnewproduct", {
         name: this.name,
         magazine: this.magazine,
         material: this.material,

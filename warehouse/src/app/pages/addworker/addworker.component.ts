@@ -48,7 +48,7 @@ export class AddWorkerComponent {
         this.empty = true;
       }
     else {
-      this.http.post('https://mysql-warehouse.onrender.com/workers/addworker', {
+      this.http.post('http://localhost:3001/workers/addworker', {
       name: this.name,
       surname: this.surname,
       phoneNumber: this.phoneNumber,
